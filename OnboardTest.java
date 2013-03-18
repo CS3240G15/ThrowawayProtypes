@@ -31,18 +31,22 @@ public class OnboardTest
 							if (fromControl[1].equals("left")) {
 								b.getMotor("A").reverse(Integer.parseInt(fromControl[2]));
 								b.getMotor("B").forward(Integer.parseInt(fromControl[2]));
+								send("Left turn successful.");
 							}
 							else if (fromControl[1].equals("right") {
 								b.getMotor("A").forward(Integer.parseInt(fromControl[2]));
 								b.getMotor("B").reverse(Integer.parseInt(fromControl[2]));
+								send("Right turn successful.");
 							}
 							else if (fromControl[1].equals("forward") {
 								b.getMotor("A").forward(Integer.parseInt(fromControl[2]));
 								b.getMotor("B").forward(Integer.parseInt(fromControl[2]));
+								send("Forward turn successful.");
 							}
 							else if (fromControl[1].equals("reverse") {
 								b.getMotor("A").reverse(Integer.parseInt(fromControl[2]));
 								b.getMotor("B").reverse(Integer.parseInt(fromControl[2]));
+								send("Reverse turn successful.");
 							}
 		    			case "0001": // move individual motor
 							if (fromControl[2].equals("forward")) {
@@ -58,28 +62,31 @@ public class OnboardTest
 							for (int i = 0; i < b.m.size(); i++) {
 								b.m.stop();
 							}
+							send("Stop successfull.");
 		    			case "0011": // sensor reading
 							send("Sensor " + fromControl[1] + ": " + b.getSensor(fromControl[1]).readValue());
 		    				//System.exit(0);
 		    				break;
-						case "0100": //Needs some clarification
+						//case "0100": //Needs some clarification
 						case "0101": // emergency stop
 							emergencyStop();
+							send("Emergency stop successful.");
 						case "0110": // abort
+							send("Abortting.");
 							System.exit(1);
-						case "1000": //Needs some clarification
+						//case "1000": //Needs some clarification
 		    			case "exit":
 		    				System.exit(0);
 		    				break;
 		    			default:
-		    				System.out.println("Invalid input.");
+		    				send("Invalid input.");
 		    				//System.exit(0);
 		    		}
 		    	}
 			    
 			    catch(Exception e){
 			    	//btc.close();
-			    	System.out.println("Invalid input exception.");
+			    	send("Invalid input exception.");
 			    	System.exit(0);
 			    }
 	    	}
