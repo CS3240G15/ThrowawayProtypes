@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 
-public class OnboardTest {
+public class OnboardTest
+	implements Program {
 
 	/**
 	 * @param args
@@ -26,19 +27,18 @@ public class OnboardTest {
 		    		//fromControl = dis.readUTF();
 		    		//fromControl.split();
 		    		switch(fromControl[0]){
-		    			case "0001": // move
-		    				String speed = fromControl[1];
-		    				String direction = fromControl[2];
-		    				String motor = fromControl[3];
-		    				System.out.println("Motor " + motor + " is moving " + direction + " at speed " + speed);
+		    			case "0001": // move individual motor
+							if (fromControl[2].equals("1")) {
+								b.getMotor(fromControl[3]).forward(Integer.parseInt(fromControl[1]));
+							}
+							else {
+								b.getMotor(fromControl[3]).reverse(Integer.parseInt(fromControl[1]));
+							}
+		    				send("Motor " + fromControl[3] + " is moving " + fromControl[2] + " at speed " + fromControl[1]);
 		    				//System.exit(0);
 		    				break;
 		    			case "0011": // sensor reading
-		    				String port = fromControl[1];
-		    				//String raw = fromControl[2];
-		    				//String motor = fromControl[3];
-		    				System.out.println("Read sensor " + port);
-		    				System.out.println("Value from robot: [value here]");
+							send("Sensor " + fromControl[1] + ": " + b.getSensor(fromControl[1]).readValue());
 		    				//System.exit(0);
 		    				break;
 		    			case "exit":

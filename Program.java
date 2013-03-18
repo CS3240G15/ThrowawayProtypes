@@ -1,6 +1,8 @@
 
 public interface Program {
 
+	Brick b;
+
 	/**
 	 * Sends a message to the control station.
 	 * 

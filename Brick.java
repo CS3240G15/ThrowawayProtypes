@@ -1,5 +1,7 @@
 
-public interface Brick {
+public interface Brick 
+	extends Motor
+	extends Sensor{
 	
 	/**
 	 * Allows changing the communications state of the brick.
