@@ -1,7 +1,6 @@
+package edu.virginia.RobotController;
 
 public interface Program {
-
-	Brick b;
 
 	/**
 	 * Sends a message to the control station.
@@ -47,7 +46,7 @@ public interface Program {
 	 * Takes a reading from the specified sensor.
 	 * 
 	 * @param s	the specified sensor to take a reading from
-	 * @return	the value of the sensor at the current point in time
+	 * @return	the value of the sensor at the current point in time	
 	 */
 	int takeReading(Sensor s);
 	
