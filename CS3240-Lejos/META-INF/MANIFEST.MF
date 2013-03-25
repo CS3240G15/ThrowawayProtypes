@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CS3240-Lejos
+Bundle-SymbolicName: CS3240-Lejos
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: CS3240-Lejos.jar,
+ Owner/Downloads/CommunicationsProtocol.jar
+Export-Package: .
